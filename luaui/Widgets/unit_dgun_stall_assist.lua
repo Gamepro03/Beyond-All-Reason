@@ -99,10 +99,6 @@ function widget:Update(dt)
 		else
 			watchTime = watchTime - dt
 			if waitedUnits and (watchTime < 0 or currentEnergy >= targetEnergy) then
-
-				if currentEnergy >= targetEnergy then
-					watchTime = 0
-				end
 				local toUnwait = {}
 				for i = 1, #waitedUnits do
 					local uID = waitedUnits[i]
@@ -130,10 +126,6 @@ function widget:Update(dt)
 			local myTeamID = spGetMyTeamID()
 			local currentEnergy, energyStorage = spGetTeamResources(myTeamID, "energy")
 			if watchTime < 0 or currentEnergy >= targetEnergy then
-
-				if currentEnergy >= targetEnergy then
-					watchTime = 0
-				end
 				local toUnwait = {}
 				for i = 1, #waitedUnits do
 					local uID = waitedUnits[i]
